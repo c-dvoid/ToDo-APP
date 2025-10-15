@@ -1,0 +1,281 @@
+
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+body {
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.list__box_title {
+    font-family: "Montserrat";
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.list__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    margin: 65px auto 0 auto;
+    padding-top: 15px;
+    border: 3px solid #6c6c6c;
+    border-radius: 15px;
+}
+
+
+.add__btn {
+    background-color: #3b3b3b;
+    font-size: 17px;
+    font-weight: 900;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add__btn:hover {
+    background-color: #131313;
+}
+
+.task__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+.task__form.hidden {
+  display: none;
+}
+
+.task__box {
+    width: 90%;
+}
+
+.task__box_item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.task__box_item.completed {
+    opacity: 0.5;
+    transform: scale(0.98)
+}
+
+.task__box_item.task__name {
+    text-decoration: line-through;
+    color: gray;
+    transition: all 0.3s ease;
+}
+
+.task__id {
+    width: 30px;
+    text-align: center;
+}
+
+.task__name {
+    flex: 1;
+}
+
+.task__desc {
+    display: none;
+    flex-basis: 100%;
+    font-size: 13px;
+    color: #555;
+    margin-top: 3px;
+    transition: all 0.3s ease;
+}
+
+.task__box_item.open .task__desc {
+    display: block;
+}
+
+.task__done {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Тёмный фон для модального окна */
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5); /* полупрозрачный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* поверх всего остального */
+}
+
+/* Сама форма модального окна */
+.modal {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.modal h1 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.modal input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.modal__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modal__buttons button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal__buttons button:hover {
+    opacity: 0.9;
+}
+
+.modal__buttons button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.modal__buttons button#closeModal {
+    background-color: #f44336;
+    color: white;
+}
+
+.modal {
+    position: relative; /* важно для позиционирования крестика внутри */
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.modal p {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+    overflow-y: auto;
+    max-height: 200px;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.modal__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 28px;
+    text-align: center;
+    padding: 0;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.modal__close-btn:hover {
+    background-color: #f44336;
+    color: white;
+    border-color: #f44336;
+}
+
+.modal__delete-btn {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.modal__delete-btn:hover {
+    background-color: #d32f2f;
+}
