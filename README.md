@@ -20,14 +20,14 @@ requirements.txt
 ## Installation
 
 1. Clone the repository:
-====================================================
+
 ```bash
-git clone https://github.com/USERNAME/pet-todo.git
+git clone https://github.com/c-dvoid/ToDo-APP.git
 ```
 ====================================================
 
 2. Create a virtual environment and install the requirements:
-==============================================================
+
 ```bash
 python -m venv venv
 # Linux/macOS
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ==============================================================
 
 3. Launch the server:
-==================================
+
 ```bash
 uvicorn backend.main:app --reload
 ```
